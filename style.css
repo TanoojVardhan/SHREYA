@@ -1,0 +1,129 @@
+:root {
+    --heart-size: 200px; /* Default heart size */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: pink; /* Fallback for pink background */
+    background-image: url('hearts-background.jpg'); /* Replace with your heart image */
+    background-size: cover; /* Make the background cover the entire page */
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    height: 450px; /* Added height */
+}
+
+.countdown-container {
+    margin-top: 50px;
+}
+
+#countdown {
+    font-size: 2em;
+    margin-bottom: 50px;
+    color: white; /* Change the text color to stand out */
+}
+
+.slideshow-container {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+}
+
+.mySlides {
+    display: none;
+}
+
+.fade {
+    animation: fade 1.5s ease-in-out;
+}
+
+@keyframes fade {
+    from { opacity: .4; } 
+    to { opacity: 1; }
+}
+
+img {
+    max-height: 600px; /* Increased max-height */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: cover;
+    position: relative;
+    z-index: 2; /* Ensure images are in front */
+}
+
+/* Heart Animation Styles */
+.container {
+    width: calc(var(--heart-size) * 1.7); /* Adjust container width based on heart size */
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    position: relative;
+    animation: heartBeat 1s ease infinite;
+}
+
+.container:hover {
+    animation: heartBeat 0.8s ease infinite;
+}
+
+.heart {
+    position: absolute;
+    left: calc(var(--heart-size) * 0.35);
+    top: calc(var(--heart-size) * 0.45);
+    width: var(--heart-size);
+    height: var(--heart-size);
+    background-color: #bf0b0b;
+    transform: rotate(45deg);
+    z-index: 1; /* Ensure heart is behind */
+}
+
+.heart:before, .heart:after {
+    content: '';
+    display: block;
+    width: var(--heart-size);
+    height: var(--heart-size);
+    position: absolute;
+    border-radius: calc(var(--heart-size) / 2);
+    background-color: #bf0b0b;
+}
+
+.heart:before {
+    left: calc(var(--heart-size) * -0.5);
+    top: 0;
+}
+
+.heart:after {
+    right: 0;
+    top: calc(var(--heart-size) * -0.5);
+}
+
+@-webkit-keyframes heartBeat { 
+    0% { zoom: 100%; }
+    15% { zoom: 120%; }
+    25% { zoom: 110%; }
+    35% { zoom: 120%; }
+    100% { zoom: 100%; }
+}
+
+@-o-keyframes heartBeat { 
+    0% { zoom: 100%; }
+    15% { zoom: 120%; }
+    25% { zoom: 110%; }
+    35% { zoom: 120%; }
+    100% { zoom: 100%; }
+}
+
+@-ms-keyframes heartBeat { 
+    0% { transform: scale(1); }
+    15% { transform: scale(1.2); }
+    25% { transform: scale(1.1); }
+    35% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@keyframes heartBeat { 
+    0% { transform: scale(1); }
+    15% { transform: scale(1.2); }
+    25% { transform: scale(1.1); }
+    35% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
